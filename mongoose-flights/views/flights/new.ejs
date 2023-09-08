@@ -1,0 +1,38 @@
+<!-- views/flights/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a New Flight</title>
+</head>
+<body>
+    <h1>Add a New Flight</h1>
+    <form action="/flights" method="POST">
+        <label for="airline">Airline:</label>
+        <select name="airline" id="airline">
+            <option value="American">American</option>
+            <option value="Southwest">Southwest</option>
+            <option value="United">United</option>
+        </select><br>
+
+        <label for="airport">Airport:</label>
+        <select name="airport" id="airport">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select><br>
+
+        <label for="flightNo">Flight Number:</label>
+        <input type="number" name="flightNo" id="flightNo" min="10" max="9999" required><br>
+
+        <label for="departs">Departure Date and Time:</label>
+        <input type="datetime-local" name="departs" id="departs" required><br>
+
+        <button type="submit">Add Flight</button>
+    </form>
+</body>
+</html>

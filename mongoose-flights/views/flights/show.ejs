@@ -1,0 +1,43 @@
+<!-- views/flights/show.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Details</title>
+</head>
+<body>
+    <h1>Flight Details</h1>
+    <h2>Airline: <%= flight.airline %></h2>
+    <h2>Airport: <%= flight.airport %></h2>
+    <h2>Flight No.: <%= flight.flightNo %></h2>
+    <h2>Departure: <%= flight.departs.toISOString() %></h2>
+    
+    <!-- Form to add a destination -->
+    <h3>Add a Destination</h3>
+    <form method="POST" action="/flights/<%= flight._id %>/destinations">
+        <label for="airport">Airport:</label>
+        <select name="airport">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+        <label for="arrival">Arrival Date/Time:</label>
+        <input type="datetime-local" name="arrival" required>
+        <button type="submit">Add Destination</button>
+    </form>
+
+    <!-- List of destinations -->
+    <h3>Destinations</h3>
+    <ul>
+        <% flight.destinations.forEach((destination) => { %>
+            <li>
+                <strong>Airport:</strong> <%= destination.airport %><br>
+                <strong>Arrival:</strong> <%= destination.arrival.toISOString() %><br>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

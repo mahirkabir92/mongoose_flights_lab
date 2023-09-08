@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+// routes/index.js
+const express = require('express');
+const router = express.Router();
+const Flight = require('../models/flight');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// GET all flights
+
 
 module.exports = router;

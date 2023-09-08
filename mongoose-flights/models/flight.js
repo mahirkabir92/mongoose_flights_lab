@@ -1,5 +1,6 @@
 // models/flight.js
 const mongoose = require('mongoose');
+const destinationSchema = require('./destinationSchema');
 
 const flightSchema = new mongoose.Schema({
   airline: {
@@ -23,6 +24,7 @@ const flightSchema = new mongoose.Schema({
     required: true,
     default: () => new Date(new Date().setFullYear(new Date().getFullYear() + 1)), // One year from now
   },
+  destinations: [destinationSchema],
 });
 
 module.exports = mongoose.model('Flight', flightSchema);
