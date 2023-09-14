@@ -39,5 +39,17 @@
             </li>
         <% }); %>
     </ul>
+
+    <!-- Display a New Ticket link -->
+    <h3>Tickets</h3>
+    <ul>
+        <% tickets.forEach((ticket) => { %>
+            <li>
+                <strong>Seat:</strong> <%= ticket.seat %><br>
+                <strong>Price:</strong> <%= ticket.price %><br>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
 </body>
 </html>

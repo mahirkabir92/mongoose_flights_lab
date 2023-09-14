@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<h2>Add Destination for Flight</h2>
+<form action="/destinations/<%= flightId %>" method="POST">
+  <label for="airport">Airport:</label>
+  <select name="airport" id="airport">
+    <option value="AUS">Austin-Bergstrom International Airport (AUS)</option>
+    <option value="DFW">Dallas/Fort Worth International Airport (DFW)</option>
+    <option value="DEN">Denver International Airport (DEN)</option>
+    <option value="LAX">Los Angeles International Airport (LAX)</option>
+    <option value="SAN">San Diego International Airport (SAN)</option></select
+  ><br />
+
+  <label for="arrival">Arrival Date/Time:</label>
+  <input type="datetime-local" name="arrival" id="arrival" required /><br />
+
+  <button type="submit">Add Destination</button>
+</form>
+
+<a href="/flights/<%= flightId %>">Back to Flight Details</a>
+
+<%- include('../partials/footer') %>
